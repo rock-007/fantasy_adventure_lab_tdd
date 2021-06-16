@@ -12,6 +12,6 @@ public class Orc extends Enemy {
 
     @Override
     public void attackPlayer(Fighter fighter) {
-        fighter.enemyAttacked()
+        fighter.enemyAttacked();
     }
 }
