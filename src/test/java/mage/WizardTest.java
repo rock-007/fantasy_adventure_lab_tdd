@@ -1,2 +1,4 @@
-package mage;public class WizardTest {
+package mage;
+
+public class WizardTest {
 }

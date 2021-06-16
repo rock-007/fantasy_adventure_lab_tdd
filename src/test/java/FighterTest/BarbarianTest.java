@@ -2,6 +2,8 @@ package FighterTest;
 
 import behaviour.IHeal;
 import behaviour.IWeapon;
+import enemies.Enemy;
+import enemies.Troll;
 import org.junit.Before;
 import org.junit.Test;
 import players.figters.Barbarian;
@@ -18,7 +20,8 @@ public class BarbarianTest {
     private Potion potion;
     private Herb herb;
     private IWeapon swordWeapon;
-//    private Sword swordWeapon;
+    //    private Sword swordWeapon;
+    private Enemy enemy;
 
     @Before
     public void before() {
@@ -26,6 +29,7 @@ public class BarbarianTest {
         potion = new Potion();
         herb = new Herb();
         swordWeapon = new Sword();
+        enemy = new Troll("troll");
     }
 
     @Test
@@ -62,12 +66,11 @@ public class BarbarianTest {
         assertEquals(swordWeapon, barbarian.getCurrentWeapon());
     }
 
-
-    
-
     @Test
-    public void attack() {
-        assertEquals(swordWeapon, barbarian.changeWeapon(swordWeapon));
+    public void canAttack() {
+        barbarian.addWeapon(swordWeapon);
+        barbarian.setCurrentWeapon(swordWeapon);
+        barbarian.getCurrentWeapon().attack(enemy);
+        assertEquals(60, enemy.getNoOfHealthPoints());
     }
-
 }

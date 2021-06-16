@@ -1,5 +1,8 @@
 package enemies;
 
+import players.figters.Fighter;
+import players.mage.Warlock;
+
 public abstract class Enemy {
 
     private int noOfHealthPoints;
@@ -19,11 +22,12 @@ public abstract class Enemy {
     }
 
     public void updateHealthPoints(int damageValue) {
-        int currentHealthPoints = getNoOfHealthPoints();
         if (damageValue > this.noOfHealthPoints) {
             this.noOfHealthPoints = 0;
         } else {
-            this.noOfHealthPoints -= currentHealthPoints;
+            this.noOfHealthPoints -= damageValue;
         }
     }
+
+public abstract void attackPlayer(Fighter fighter);
 }
